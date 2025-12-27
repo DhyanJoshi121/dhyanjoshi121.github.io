@@ -1145,10 +1145,10 @@
                     How many years do you plan to run your business?
                 </label>
                 <div style="display: flex; gap: 16px; align-items: center;">
-                    <input type="range" id="yearSlider" min="1" max="5" value="2" 
-                           style="flex: 1; height: 8px; border-radius: 4px; outline: none; -webkit-appearance: none; background: linear-gradient(to right, #667eea 0%, #667eea 40%, #ddd 40%, #ddd 100%);">
+                    <input type="range" id="yearSlider" min="1" max="25" value="10" 
+                           style="flex: 1; height: 8px; border-radius: 4px; outline: none; -webkit-appearance: none; appearance: none; background: linear-gradient(to right, #667eea 0%, #667eea 37.5%, #ddd 37.5%, #ddd 100%);">
                     <div style="font-size: 32px; font-weight: 700; color: #667eea; min-width: 80px; text-align: center;">
-                        <span id="yearDisplay">2</span> years
+                        <span id="yearDisplay">10</span> years
                     </div>
                 </div>
             </div>
@@ -1158,16 +1158,16 @@
                     Choose your package:
                 </label>
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                    <button class="package-selector active" data-package="1" onclick="selectPackage(1)" 
-                            style="padding: 16px; border: 2px solid #667eea; border-radius: 12px; background: #f8f9ff; cursor: pointer; font-weight: 600; transition: all 0.3s;">
+                    <button class="package-selector" data-package="1" onclick="selectPackage(1)" 
+                            style="padding: 16px; border: 2px solid #ddd; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">
                         Build & Done
                     </button>
                     <button class="package-selector" data-package="2" onclick="selectPackage(2)"
                             style="padding: 16px; border: 2px solid #ddd; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">
                         Build & Deploy
                     </button>
-                    <button class="package-selector" data-package="3" onclick="selectPackage(3)"
-                            style="padding: 16px; border: 2px solid #ddd; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">
+                    <button class="package-selector active" data-package="3" onclick="selectPackage(3)"
+                            style="padding: 16px; border: 2px solid #667eea; border-radius: 12px; background: #f8f9ff; cursor: pointer; font-weight: 600; transition: all 0.3s;">
                         Premium
                     </button>
                 </div>
@@ -1175,31 +1175,27 @@
 
             <div id="calculatorResult" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; padding: 32px; color: white;">
                 <div style="text-align: center; margin-bottom: 24px;">
-                    <div style="font-size: 14px; opacity: 0.9; margin-bottom: 8px;">Your Total Investment Over <span id="resultYears">2</span> Years</div>
-                    <div style="font-size: 48px; font-weight: 700;">₹<span id="totalCost">40,000</span></div>
+                    <div style="font-size: 14px; opacity: 0.9; margin-bottom: 8px;">Your Initial Investment</div>
+                    <div style="font-size: 48px; font-weight: 700;">₹<span id="totalCost">80,000</span></div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px;">
                     <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; text-align: center;">
                         <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">Per Month</div>
-                        <div style="font-size: 28px; font-weight: 700;">₹<span id="monthlyCost">1,667</span></div>
+                        <div style="font-size: 28px; font-weight: 700;">₹<span id="monthlyCost">667</span></div>
                     </div>
                     <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; text-align: center;">
                         <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">Per Day</div>
-                        <div style="font-size: 28px; font-weight: 700;">₹<span id="dailyCost">56</span></div>
+                        <div style="font-size: 28px; font-weight: 700;">₹<span id="dailyCost">22</span></div>
                     </div>
                     <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; text-align: center;">
                         <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">Per Hour</div>
-                        <div style="font-size: 28px; font-weight: 700;">₹<span id="hourlyCost">2.3</span></div>
+                        <div style="font-size: 28px; font-weight: 700;">₹<span id="hourlyCost">0.9</span></div>
                     </div>
                 </div>
 
-                <div id="subscriptionNote" style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 14px; text-align: center; display: none;">
-                    Includes: ₹<span id="devFee">40,000</span> development + ₹<span id="subFee">0</span>/month subscription
-                </div>
-
                 <div style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; text-align: center; opacity: 0.9;">
-                    💡 That's less than what you'd pay for a single employee for 2-3 months
+                    💡 Break down the initial cost over <span id="resultYears">10</span> years - that's how affordable it really is!
                 </div>
             </div>
         </div>
@@ -1211,13 +1207,13 @@
                 3: { dev: 80000, monthly: 8000, name: 'Premium' }
             };
 
-            let selectedPackage = 1;
-            let selectedYears = 2;
+            let selectedPackage = 3;
+            let selectedYears = 10;
 
             function updateSliderBackground() {
                 const slider = document.getElementById('yearSlider');
                 const value = slider.value;
-                const percentage = ((value - 1) / 4) * 100;
+                const percentage = ((value - 1) / 24) * 100;
                 slider.style.background = `linear-gradient(to right, #667eea 0%, #667eea ${percentage}%, #ddd ${percentage}%, #ddd 100%)`;
             }
 
@@ -1243,29 +1239,17 @@
                 const months = years * 12;
                 
                 const devCost = pkg.dev;
-                const subscriptionCost = pkg.monthly * months;
-                const totalCost = devCost + subscriptionCost;
                 
-                const perMonth = Math.round(totalCost / months);
-                const perDay = Math.round(totalCost / (months * 30));
-                const perHour = (totalCost / (months * 30 * 24)).toFixed(1);
+                // Calculate per month/day/hour based on initial cost spread over years
+                const perMonth = Math.round(devCost / months);
+                const perDay = Math.round(devCost / (months * 30));
+                const perHour = (devCost / (months * 30 * 24)).toFixed(1);
                 
-                document.getElementById('totalCost').textContent = totalCost.toLocaleString('en-IN');
+                document.getElementById('totalCost').textContent = devCost.toLocaleString('en-IN');
                 document.getElementById('monthlyCost').textContent = perMonth.toLocaleString('en-IN');
                 document.getElementById('dailyCost').textContent = perDay.toLocaleString('en-IN');
                 document.getElementById('hourlyCost').textContent = perHour;
                 document.getElementById('resultYears').textContent = years;
-                
-                document.getElementById('devFee').textContent = devCost.toLocaleString('en-IN');
-                document.getElementById('subFee').textContent = pkg.monthly.toLocaleString('en-IN');
-                
-                // Show subscription note only for packages with monthly fee
-                const subNote = document.getElementById('subscriptionNote');
-                if (pkg.monthly > 0) {
-                    subNote.style.display = 'block';
-                } else {
-                    subNote.style.display = 'none';
-                }
             }
 
             // Year slider event
