@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Development Packages</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 32px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .card.featured .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .plan-tagline {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 24px;
+            min-height: 40px;
+        }
+
+        .price-section {
+            margin-bottom: 32px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .currency {
+            font-size: 28px;
+        }
+
+        .period {
+            font-size: 16px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .price-detail {
+            font-size: 14px;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        .price-breakdown {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .breakdown-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e8ebf9;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+            padding-top: 12px;
+            margin-top: 8px;
+            border-top: 2px solid #667eea;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .breakdown-label {
+            color: #666;
+        }
+
+        .breakdown-value {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .subscription-price {
+            background: #f5f5f5;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
+        .subscription-price .label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .subscription-price .amount {
+            font-size: 24px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 32px;
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .cta-button.secondary {
+            background: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .checkmark {
+            color: #10b981;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .section-divider {
+            border-top: 2px solid #f0f0f0;
+            margin: 24px 0;
+            padding-top: 16px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .timeline {
+            background: #f8f9ff;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .timeline-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .timeline-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .savings-badge {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .section-header {
+            text-align: center;
+            color: white;
+            margin: 80px 0 40px 0;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .infrastructure-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .infra-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .infra-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .infra-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .infra-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .infra-subtitle {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .tier-option {
+            background: #f8f9ff;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .tier-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .tier-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .tier-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .tier-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .integration-note {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .integration-note strong {
+            color: #f57c00;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .upgrade-options {
+            background: #f0f4ff;
+            border: 2px dashed #667eea;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .upgrade-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .upgrade-item {
+            font-size: 13px;
+            color: #555;
+            padding: 6px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card.featured {
+                transform: scale(1);
+            }
+
+            .infrastructure-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table h2 {
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 32px;
+            color: #1a1a1a;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f8f9ff;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .highlight-cell {
+            background: #f8f9ff;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding: 40px 20px;
+            opacity: 0.9;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>E-Commerce Development Packages</h1>
+            <p>Professional handloom saree e-commerce solutions with transparent pricing</p>
+        </div>
+
+        <div class="pricing-cards">
+            <!-- Package 1 -->
+            <div class="card">
+                <div class="plan-name">Build & Done</div>
+                <div class="plan-tagline">"Get your store built, handle the rest yourself"</div>
+
+                <div class="timeline">
+                    <div class="timeline-label">Timeline</div>
+                    <div class="timeline-value">3-4 Weeks</div>
+                </div>
+
+                <div class="price-section">
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span>40,000</span>
+                    </div>
+                    <div class="price-detail">One-time payment (50 hours of development)</div>
+                </div>
+
+                <button class="cta-button secondary">Get Started</button>
+
+                <div class="section-title">Core Features</div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>Full e-commerce website with product catalog</span></li>
+                    <li><span class="checkmark">✓</span> <span>Shopping cart & checkout system</span></li>
+                    <li><span class="checkmark">✓</span> <span>Payment gateway (Razorpay/PayU)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Admin panel for product management</span></li>
+                    <li><span class="checkmark">✓</span> <span>Mobile-responsive design</span></li>
+                    <li><span class="checkmark">✓</span> <span>Search & filtering by fabric/occasion</span></li>
+                    <li><span class="checkmark">✓</span> <span>Basic email order confirmations (Gmail SMTP)</span></li>
+                    <li><span class="checkmark">✓</span> <span>2 rounds of revisions</span></li>
+                    <li><span class="checkmark">✓</span> <span>Code documentation</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">What's Not Included</div>
+                </div>
+
+                <ul class="features-list">
+                    <li><span style="color: #ef4444;">✗</span> <span>Deployment & hosting setup</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Domain & SSL configuration</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Support after 15 days</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Future updates or bug fixes</span></li>
+                </ul>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="card featured">
+                <div class="badge">MOST POPULAR</div>
+                <div class="plan-name">Build, Deploy & Support</div>
+                <div class="plan-tagline">"Professional setup with ongoing maintenance"</div>
+
+                <div class="timeline">
+                    <div class="timeline-label">Timeline</div>
+                    <div class="timeline-value">4-5 Weeks</div>
+                </div>
+
+                <div class="price-section">
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span>60,000</span>
+                    </div>
+                    <div class="price-detail">Initial setup (65 hours + deployment)</div>
+
+                    <div class="subscription-price">
+                        <div class="label">Monthly Subscription</div>
+                        <div class="amount">₹4,500/mo</div>
+                        <div style="font-size: 12px; color: #888; margin-top: 8px;">
+                            Monitoring, updates, bug fixes, 1 deployment/month
+                        </div>
+                    </div>
+                </div>
+
+                <button class="cta-button primary">Get Started</button>
+
+                <div class="section-title">Core Features</div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>Full e-commerce website with product catalog</span></li>
+                    <li><span class="checkmark">✓</span> <span>Shopping cart & checkout system</span></li>
+                    <li><span class="checkmark">✓</span> <span>Payment gateway (Razorpay/PayU)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Admin panel for product management</span></li>
+                    <li><span class="checkmark">✓</span> <span>Mobile-responsive design</span></li>
+                    <li><span class="checkmark">✓</span> <span>Search & filtering by fabric/occasion</span></li>
+                    <li><span class="checkmark">✓</span> <span>Basic email order confirmations (Gmail SMTP)</span></li>
+                    <li><span class="checkmark">✓</span> <span>2 rounds of revisions</span></li>
+                    <li><span class="checkmark">✓</span> <span>Code documentation</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">Deployment & Support Features</div>
+                </div>
+
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>Complete server deployment (DigitalOcean/AWS)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Domain & DNS configuration</span></li>
+                    <li><span class="checkmark">✓</span> <span>SSL certificate setup & renewal</span></li>
+                    <li><span class="checkmark">✓</span> <span>Database optimization</span></li>
+                    <li><span class="checkmark">✓</span> <span>CDN setup for fast loading</span></li>
+                    <li><span class="checkmark">✓</span> <span>Automated backups</span></li>
+                    <li><span class="checkmark">✓</span> <span>24/7 server monitoring</span></li>
+                    <li><span class="checkmark">✓</span> <span>Unlimited bug fixes</span></li>
+                    <li><span class="checkmark">✓</span> <span>Monthly performance checks</span></li>
+                    <li><span class="checkmark">✓</span> <span>48-hour email support</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">Additional Benefits</div>
+                </div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>New features at ₹800/hour</span></li>
+                    <li><span class="checkmark">✓</span> <span>3-month minimum, then cancel anytime</span></li>
+                </ul>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="card">
+                <div class="plan-name">Full-Service Premium</div>
+                <div class="plan-tagline">"Complete solution with advanced features & guaranteed uptime"</div>
+
+                <div class="timeline">
+                    <div class="timeline-label">Timeline</div>
+                    <div class="timeline-value">6-8 Weeks</div>
+                </div>
+
+                <div class="price-section">
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span>75,000</span>
+                    </div>
+                    <div class="price-detail">Initial setup (90 hours + premium deployment)</div>
+
+                    <div class="subscription-price">
+                        <div class="label">Monthly Subscription</div>
+                        <div class="amount">₹6,500/mo</div>
+                        <div style="font-size: 12px; color: #888; margin-top: 8px;">
+                            Priority support, 2 deployments/month, weekly reports
+                        </div>
+                    </div>
+
+                    <div class="savings-badge">
+                        💰 All features at 40% OFF (₹480/hr vs ₹800/hr)
+                    </div>
+                </div>
+
+                <button class="cta-button primary">Get Started</button>
+
+                <div class="section-title">Core Features</div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>Full e-commerce website with product catalog</span></li>
+                    <li><span class="checkmark">✓</span> <span>Shopping cart & checkout system</span></li>
+                    <li><span class="checkmark">✓</span> <span>Payment gateway (Razorpay/PayU)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Admin panel for product management</span></li>
+                    <li><span class="checkmark">✓</span> <span>Mobile-responsive design</span></li>
+                    <li><span class="checkmark">✓</span> <span>Search & filtering by fabric/occasion</span></li>
+                    <li><span class="checkmark">✓</span> <span>Basic email order confirmations (Gmail SMTP)</span></li>
+                    <li><span class="checkmark">✓</span> <span>2 rounds of revisions</span></li>
+                    <li><span class="checkmark">✓</span> <span>Code documentation</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">Deployment & Support Features</div>
+                </div>
+
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>Complete server deployment (DigitalOcean/AWS)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Domain & DNS configuration</span></li>
+                    <li><span class="checkmark">✓</span> <span>SSL certificate setup & renewal</span></li>
+                    <li><span class="checkmark">✓</span> <span>Database optimization</span></li>
+                    <li><span class="checkmark">✓</span> <span>CDN setup for fast loading</span></li>
+                    <li><span class="checkmark">✓</span> <span>Automated backups</span></li>
+                    <li><span class="checkmark">✓</span> <span>24/7 server monitoring</span></li>
+                    <li><span class="checkmark">✓</span> <span>Unlimited bug fixes</span></li>
+                    <li><span class="checkmark">✓</span> <span>Monthly performance checks</span></li>
+                    <li><span class="checkmark">✓</span> <span>48-hour email support</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">Premium Features</div>
+                </div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span><strong>40% discount forever</strong> on all new features (₹480/hr vs ₹800/hr)</span></li>
+                    <li><span class="checkmark">✓</span> <span><strong>99.5% uptime guarantee</strong></span></li>
+                    <li><span class="checkmark">✓</span> <span>Custom design (no templates)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Inventory management system</span></li>
+                    <li><span class="checkmark">✓</span> <span>Customer reviews & ratings</span></li>
+                    <li><span class="checkmark">✓</span> <span>Wishlist functionality</span></li>
+                    <li><span class="checkmark">✓</span> <span>Order tracking page</span></li>
+                    <li><span class="checkmark">✓</span> <span>SMS integration (free tier - MSG91)</span></li>
+                    <li><span class="checkmark">✓</span> <span>WhatsApp Business integration (free app)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Email marketing setup (Mailchimp free tier)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Analytics dashboard</span></li>
+                    <li><span class="checkmark">✓</span> <span>Full SEO optimization</span></li>
+                    <li><span class="checkmark">✓</span> <span>24-hour priority support (vs 48-hour)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Weekly monitoring reports (vs monthly)</span></li>
+                    <li><span class="checkmark">✓</span> <span>2 feature deployments per month (vs 1)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Monthly strategy calls</span></li>
+                    <li><span class="checkmark">✓</span> <span>12 months support included</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">Long-term Value</div>
+                </div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>After 12 months: ₹5,000/month subscription</span></li>
+                    <li><span class="checkmark">✓</span> <span>Keep 40% feature discount forever</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Third-party Services Section -->
+        <div class="section-header">
+            <h2>Third-Party Service Costs</h2>
+            <p>These are monthly costs you pay directly to service providers (not to me)</p>
+        </div>
+
+        <div class="infrastructure-cards">
+            <!-- Hosting Card -->
+            <div class="infra-card">
+                <div class="infra-card-header">
+                    <div class="infra-icon">🖥️</div>
+                    <div>
+                        <div class="infra-card-title">Hosting & Infrastructure</div>
+                    </div>
+                </div>
+                <div class="infra-subtitle">Server, database, CDN, backups, SSL certificate</div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">Starter (1,000 users/month)</span>
+                        <span class="tier-price">₹5-8K</span>
+                    </div>
+                    <div class="tier-description">
+                        DigitalOcean Basic Droplet (4GB) + Storage + Backups + SSL
+                    </div>
+                </div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">Growth (10,000 users/month)</span>
+                        <span class="tier-price">₹15-25K</span>
+                    </div>
+                    <div class="tier-description">
+                        Medium Droplet (8GB) + CDN + Database + Managed Backups
+                    </div>
+                </div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">Scale (50,000+ users/month)</span>
+                        <span class="tier-price">₹40-80K</span>
+                    </div>
+                    <div class="tier-description">
+                        AWS with auto-scaling + RDS Database + CloudFront CDN + Load Balancer
+                    </div>
+                </div>
+
+                <div class="integration-note">
+                    <strong>What I Do:</strong>
+                    I set up and optimize your infrastructure. You pay the hosting provider directly - this means you own and control your servers.
+                </div>
+            </div>
+
+            <!-- Email Services Card -->
+            <div class="infra-card">
+                <div class="infra-card-header">
+                    <div class="infra-icon">📧</div>
+                    <div>
+                        <div class="infra-card-title">Email Services</div>
+                    </div>
+                </div>
+                <div class="infra-subtitle">Order confirmations, shipping updates, notifications</div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">Free Tier (Gmail SMTP)</span>
+                        <span class="tier-price">₹0</span>
+                    </div>
+                    <div class="tier-description">
+                        Up to 500 emails/day. Good for starting out. Included in all packages.
+                    </div>
+                </div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">SendGrid/AWS SES</span>
+                        <span class="tier-price">₹500-2K</span>
+                    </div>
+                    <div class="tier-description">
+                        10K-40K emails/month. Better deliverability. Upgrade when you scale.
+                    </div>
+                </div>
+
+                <div class="integration-note">
+                    <strong>What I Do:</strong>
+                    I integrate email service with your site (3-5 hours). You start with free Gmail SMTP. When you grow, I'll help you upgrade to SendGrid/SES.
+                </div>
+
+                <div class="upgrade-options">
+                    <div class="upgrade-title">🎯 Email Marketing (Optional)</div>
+                    <div class="upgrade-item">
+                        <span>Mailchimp (Free: 500 subscribers)</span>
+                        <span>₹0</span>
+                    </div>
+                    <div class="upgrade-item">
+                        <span>Mailchimp (2,000 subscribers)</span>
+                        <span>₹800-2K/mo</span>
+                    </div>
+                    <div style="font-size: 12px; color: #666; margin-top: 8px; font-style: italic;">
+                        Package 3 includes: SMS integration with MSG91 (10 hrs) + WhatsApp Business setup (6 hrs). You only pay MSG91 for actual SMS sent.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Gateway Card -->
+            <div class="infra-card">
+                <div class="infra-card-header">
+                    <div class="infra-icon">💳</div>
+                    <div>
+                        <div class="infra-card-title">Payment Gateway</div>
+                    </div>
+                </div>
+                <div class="infra-subtitle">Process customer payments securely</div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">Razorpay</span>
+                        <span class="tier-price">2% per transaction</span>
+                    </div>
+                    <div class="tier-description">
+                        ₹1 lakh sales = ₹2,000 fees. Most popular in India. Instant setup.
+                    </div>
+                </div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">PayU</span>
+                        <span class="tier-price">2% per transaction</span>
+                    </div>
+                    <div class="tier-description">
+                        Similar to Razorpay. Good alternative option.
+                    </div>
+                </div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">Stripe (International)</span>
+                        <span class="tier-price">2.9% + ₹2.5 per transaction</span>
+                    </div>
+                    <div class="tier-description">
+                        Best for international customers. Slightly higher fees.
+                    </div>
+                </div>
+
+                <div class="integration-note">
+                    <strong>What I Do:</strong>
+                    I integrate Razorpay/PayU with your site (included in all packages). You create account with them and pay transaction fees on each sale.
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost Calculator Section -->
+        <div class="section-header">
+            <h2>💰 Calculate Your Real Cost</h2>
+            <p>See how affordable professional e-commerce really is when you break it down</p>
+        </div>
+
+        <div class="comparison-table" style="max-width: 800px; margin: 40px auto;">
+            <div style="margin-bottom: 32px;">
+                <label style="display: block; font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px;">
+                    How many years do you plan to run your business?
+                </label>
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <input type="range" id="yearSlider" min="1" max="5" value="2" 
+                           style="flex: 1; height: 8px; border-radius: 4px; outline: none; -webkit-appearance: none; background: linear-gradient(to right, #667eea 0%, #667eea 40%, #ddd 40%, #ddd 100%);">
+                    <div style="font-size: 32px; font-weight: 700; color: #667eea; min-width: 80px; text-align: center;">
+                        <span id="yearDisplay">2</span> years
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 32px;">
+                <label style="display: block; font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px;">
+                    Choose your package:
+                </label>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                    <button class="package-selector active" data-package="1" onclick="selectPackage(1)" 
+                            style="padding: 16px; border: 2px solid #667eea; border-radius: 12px; background: #f8f9ff; cursor: pointer; font-weight: 600; transition: all 0.3s;">
+                        Build & Done
+                    </button>
+                    <button class="package-selector" data-package="2" onclick="selectPackage(2)"
+                            style="padding: 16px; border: 2px solid #ddd; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">
+                        Build & Deploy
+                    </button>
+                    <button class="package-selector" data-package="3" onclick="selectPackage(3)"
+                            style="padding: 16px; border: 2px solid #ddd; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">
+                        Premium
+                    </button>
+                </div>
+            </div>
+
+            <div id="calculatorResult" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; padding: 32px; color: white;">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div style="font-size: 14px; opacity: 0.9; margin-bottom: 8px;">Your Total Investment Over <span id="resultYears">2</span> Years</div>
+                    <div style="font-size: 48px; font-weight: 700;">₹<span id="totalCost">40,000</span></div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px;">
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">Per Month</div>
+                        <div style="font-size: 28px; font-weight: 700;">₹<span id="monthlyCost">1,667</span></div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">Per Day</div>
+                        <div style="font-size: 28px; font-weight: 700;">₹<span id="dailyCost">56</span></div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">Per Hour</div>
+                        <div style="font-size: 28px; font-weight: 700;">₹<span id="hourlyCost">2.3</span></div>
+                    </div>
+                </div>
+
+                <div id="subscriptionNote" style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 14px; text-align: center; display: none;">
+                    Includes: ₹<span id="devFee">40,000</span> development + ₹<span id="subFee">0</span>/month subscription
+                </div>
+
+                <div style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; text-align: center; opacity: 0.9;">
+                    💡 That's less than what you'd pay for a single employee for 2-3 months
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const packages = {
+                1: { dev: 40000, monthly: 0, name: 'Build & Done' },
+                2: { dev: 60000, monthly: 4500, name: 'Build & Deploy' },
+                3: { dev: 75000, monthly: 6500, name: 'Premium' }
+            };
+
+            let selectedPackage = 1;
+            let selectedYears = 2;
+
+            function updateSliderBackground() {
+                const slider = document.getElementById('yearSlider');
+                const value = slider.value;
+                const percentage = ((value - 1) / 4) * 100;
+                slider.style.background = `linear-gradient(to right, #667eea 0%, #667eea ${percentage}%, #ddd ${percentage}%, #ddd 100%)`;
+            }
+
+            function selectPackage(packageNum) {
+                selectedPackage = packageNum;
+                
+                // Update button styles
+                document.querySelectorAll('.package-selector').forEach(btn => {
+                    btn.style.border = '2px solid #ddd';
+                    btn.style.background = 'white';
+                });
+                
+                const activeBtn = document.querySelector(`[data-package="${packageNum}"]`);
+                activeBtn.style.border = '2px solid #667eea';
+                activeBtn.style.background = '#f8f9ff';
+                
+                calculateCost();
+            }
+
+            function calculateCost() {
+                const pkg = packages[selectedPackage];
+                const years = selectedYears;
+                const months = years * 12;
+                
+                const devCost = pkg.dev;
+                const subscriptionCost = pkg.monthly * months;
+                const totalCost = devCost + subscriptionCost;
+                
+                const perMonth = Math.round(totalCost / months);
+                const perDay = Math.round(totalCost / (months * 30));
+                const perHour = (totalCost / (months * 30 * 24)).toFixed(1);
+                
+                document.getElementById('totalCost').textContent = totalCost.toLocaleString('en-IN');
+                document.getElementById('monthlyCost').textContent = perMonth.toLocaleString('en-IN');
+                document.getElementById('dailyCost').textContent = perDay.toLocaleString('en-IN');
+                document.getElementById('hourlyCost').textContent = perHour;
+                document.getElementById('resultYears').textContent = years;
+                
+                document.getElementById('devFee').textContent = devCost.toLocaleString('en-IN');
+                document.getElementById('subFee').textContent = pkg.monthly.toLocaleString('en-IN');
+                
+                // Show subscription note only for packages with monthly fee
+                const subNote = document.getElementById('subscriptionNote');
+                if (pkg.monthly > 0) {
+                    subNote.style.display = 'block';
+                } else {
+                    subNote.style.display = 'none';
+                }
+            }
+
+            // Year slider event
+            document.getElementById('yearSlider').addEventListener('input', function(e) {
+                selectedYears = parseInt(e.target.value);
+                document.getElementById('yearDisplay').textContent = selectedYears;
+                updateSliderBackground();
+                calculateCost();
+            });
+
+            // Initialize
+            updateSliderBackground();
+            calculateCost();
+        </script>
+
+        <!-- Savings Comparison Table -->
+        <div class="comparison-table">
+            <h2>Premium Package: How Much You Save Long-term</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Common Feature Requests</th>
+                            <th>Build & Deploy Rate</th>
+                            <th>Premium Rate (40% OFF)</th>
+                            <th>You Save</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Advanced Analytics Dashboard (15 hrs)</td>
+                            <td>₹12,000</td>
+                            <td class="highlight-cell">₹7,200</td>
+                            <td><strong style="color: #10b981;">₹4,800</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Custom Blouse Measurement Tool (35 hrs)</td>
+                            <td>₹28,000</td>
+                            <td class="highlight-cell">₹16,800</td>
+                            <td><strong style="color: #10b981;">₹11,200</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Multi-language Support (25 hrs)</td>
+                            <td>₹20,000</td>
+                            <td class="highlight-cell">₹12,000</td>
+                            <td><strong style="color: #10b981;">₹8,000</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Blog/Content Management (12 hrs)</td>
+                            <td>₹9,600</td>
+                            <td class="highlight-cell">₹5,760</td>
+                            <td><strong style="color: #10b981;">₹3,840</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Advanced Product Filters (10 hrs)</td>
+                            <td>₹8,000</td>
+                            <td class="highlight-cell">₹4,800</td>
+                            <td><strong style="color: #10b981;">₹3,200</strong></td>
+                        </tr>
+                        <tr style="background: #f8f9ff;">
+                            <td><strong>Total if you add all these</strong></td>
+                            <td><strong>₹77,600</strong></td>
+                            <td class="highlight-cell"><strong>₹46,560</strong></td>
+                            <td><strong style="color: #10b981; font-size: 18px;">₹31,040 saved</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align: center; margin-top: 24px; color: #666; font-size: 14px;">
+                💡 <strong>The Premium package pays for itself</strong> after just 2-3 feature additions through the 40% discount
+            </p>
+        </div>
+
+        <div class="footer">
+            <h3>Clear Pricing, No Surprises</h3>
+            <p>
+                <strong>My fees are for development & support.</strong> Third-party service costs (hosting, SMS, etc.) are paid by you directly to providers - this means you own and control everything.<br><br>
+                <strong>All integrations in Package 3 start with FREE TIERS:</strong> Gmail SMTP for emails, WhatsApp Business app (free), Mailchimp free tier (500 subscribers), MSG91 pay-per-use SMS. You only upgrade to paid tiers when your business grows.<br><br>
+                <strong>For new businesses:</strong> Start with <span class="highlight">Build & Deploy</span> (₹60K + ₹4.5K/month)<br>
+                <strong>For serious ventures:</strong> Choose <span class="highlight">Full-Service Premium</span> (₹75K + ₹6.5K/month) and save 40% forever on new features<br><br>
+                Questions? Let's discuss which package fits your needs.
+            </p>
+        </div>
+    </div>
+</body>
+</html> font-style: italic;">
+                        Package 3 includes: I set up Mailchimp, design templates, integrate signup forms (10 hrs)
+                    </div>
+                </div>
+            </div>
+
+            <!-- SMS & WhatsApp Card -->
+            <div class="infra-card">
+                <div class="infra-card-header">
+                    <div class="infra-icon">💬</div>
+                    <div>
+                        <div class="infra-card-title">SMS & WhatsApp</div>
+                    </div>
+                </div>
+                <div class="infra-subtitle">Order updates, delivery notifications, customer support</div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">SMS (MSG91 - Pay per use)</span>
+                        <span class="tier-price">₹0.15-0.25/SMS</span>
+                    </div>
+                    <div class="tier-description">
+                        100 orders/day × 3 SMS each = ₹1,500-2,500/month. Only pay for what you use.
+                    </div>
+                </div>
+
+                <div class="tier-option">
+                    <div class="tier-header">
+                        <span class="tier-name">WhatsApp Business (Free)</span>
+                        <span class="tier-price">₹0</span>
+                    </div>
+                    <div class="tier-description">
+                        Manual notifications using WhatsApp Business app. Good for <50 orders/day.
+                    </div>
+                </div>
+
+                <div class="integration-note">
+                    <strong>What I Do:</strong>
+                    Package 3 includes: SMS integration with MSG91 (10 hrs) + WhatsApp Business setup (6 hrs). You only pay MSG91 for actual SMS sent.
+                </div>
+
+                <div class="upgrade-options">
+                    <div class="upgrade-title">⬆️ Premium Upgrades (Optional)</div>
+                    <div class="upgrade-item">
+                        <span>WhatsApp Official API (automated)</span>
+                        <span>+15 hrs dev</span>
+                    </div>
+                    <div class="upgrade-item">
+                        <span>WhatsApp API service provider</span>
+                        <span>₹5K setup + ₹2-5K/mo</span>
+                    </div>
+                    <div style="font-size: 12px; color: #666; margin-top: 8px;
