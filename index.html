@@ -26,7 +26,7 @@
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 60px;
+            margin-bottom: 100px;
         }
 
         .header h1 {
@@ -424,20 +424,210 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .header {
+                margin-bottom: 40px;
+            }
+
             .header h1 {
-                font-size: 32px;
+                font-size: 28px;
+                line-height: 1.2;
+            }
+
+            .header p {
+                font-size: 16px;
             }
 
             .pricing-cards {
                 grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .card {
+                padding: 24px 20px;
+                border-radius: 16px;
             }
 
             .card.featured {
                 transform: scale(1);
             }
 
+            .plan-name {
+                font-size: 20px;
+            }
+
+            .plan-tagline {
+                font-size: 13px;
+                min-height: auto;
+            }
+
+            .price {
+                font-size: 36px;
+            }
+
+            .currency {
+                font-size: 24px;
+            }
+
+            .price-detail {
+                font-size: 13px;
+            }
+
+            .subscription-price .amount {
+                font-size: 20px;
+            }
+
+            .section-header {
+                margin: 50px 0 30px 0;
+            }
+
+            .section-header h2 {
+                font-size: 24px;
+            }
+
+            .section-header p {
+                font-size: 16px;
+            }
+
             .infrastructure-cards {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .infra-card {
+                padding: 24px 20px;
+            }
+
+            .comparison-table {
+                padding: 24px 20px;
+                margin-top: 40px;
+                border-radius: 16px;
+            }
+
+            .comparison-table h2 {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 12px 8px;
+                font-size: 13px;
+            }
+
+            .footer {
+                padding: 30px 15px;
+                margin-top: 40px;
+            }
+
+            .footer h3 {
+                font-size: 20px;
+            }
+
+            .footer p {
+                font-size: 14px;
+            }
+
+            /* Calculator mobile styles */
+            #calculatorResult {
+                padding: 24px 20px !important;
+            }
+
+            #calculatorResult > div:first-child > div:last-child {
+                font-size: 36px !important;
+            }
+
+            #calculatorResult > div:last-child {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+
+            #calculatorResult > div:last-child > div {
+                padding: 16px !important;
+            }
+
+            #calculatorResult > div:last-child > div > div:last-child {
+                font-size: 24px !important;
+            }
+
+            /* Package selector buttons */
+            div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+
+            /* Year slider display */
+            div[style*="font-size: 32px"] {
+                font-size: 24px !important;
+                min-width: 60px !important;
+            }
+
+            /* Tier options */
+            .tier-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .tier-price {
+                font-size: 16px;
+            }
+
+            .upgrade-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 20px 16px;
+            }
+
+            .price {
+                font-size: 32px;
+            }
+
+            .features-list li {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+
+            .comparison-table {
+                padding: 20px 16px;
+            }
+
+            .comparison-table h2 {
+                font-size: 20px;
+            }
+
+            th, td {
+                padding: 10px 6px;
+                font-size: 12px;
+            }
+
+            #calculatorResult > div:first-child > div:last-child {
+                font-size: 32px !important;
+            }
+
+            #calculatorResult > div:last-child > div > div:last-child {
+                font-size: 20px !important;
             }
         }
 
@@ -519,7 +709,6 @@
     <div class="container">
         <div class="header">
             <h1>E-Commerce Development Packages</h1>
-            <p>Professional handloom saree e-commerce solutions with transparent pricing</p>
         </div>
 
         <div class="pricing-cards">
@@ -554,6 +743,7 @@
                     <li><span class="checkmark">✓</span> <span>Basic email order confirmations (Gmail SMTP)</span></li>
                     <li><span class="checkmark">✓</span> <span>2 rounds of revisions</span></li>
                     <li><span class="checkmark">✓</span> <span>Code documentation</span></li>
+                    <li><span class="checkmark">✓</span> <span>2 weeks of support included</span></li>
                 </ul>
 
                 <div class="section-divider">
@@ -563,8 +753,35 @@
                 <ul class="features-list">
                     <li><span style="color: #ef4444;">✗</span> <span>Deployment & hosting setup</span></li>
                     <li><span style="color: #ef4444;">✗</span> <span>Domain & SSL configuration</span></li>
-                    <li><span style="color: #ef4444;">✗</span> <span>Support after 15 days</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Support after 2 weeks</span></li>
                     <li><span style="color: #ef4444;">✗</span> <span>Future updates or bug fixes</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Complete server deployment (DigitalOcean/AWS)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Domain & DNS configuration</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>SSL certificate setup & renewal</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Database optimization</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>CDN setup for fast loading</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Automated backups</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>24/7 server monitoring</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Unlimited bug fixes</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Monthly performance checks</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>48-hour email support</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>40% discount on new features (₹480/hr vs ₹800/hr)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>99.5% uptime guarantee</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Custom design (no templates)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Inventory management system</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Customer reviews & ratings</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Wishlist functionality</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Order tracking page</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>SMS integration (MSG91)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>WhatsApp Business integration</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Email marketing setup (Mailchimp)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Analytics dashboard</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Full SEO optimization</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>24-hour priority support</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Weekly monitoring reports</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>2 feature deployments per month</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Monthly strategy calls</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>12 months support included</span></li>
                 </ul>
             </div>
 
@@ -582,15 +799,15 @@
                 <div class="price-section">
                     <div class="price">
                         <span class="currency">₹</span>
-                        <span>60,000</span>
+                        <span>65,000</span>
                     </div>
                     <div class="price-detail">Initial setup (65 hours + deployment)</div>
 
                     <div class="subscription-price">
                         <div class="label">Monthly Subscription</div>
-                        <div class="amount">₹4,500/mo</div>
+                        <div class="amount">₹6,500/mo</div>
                         <div style="font-size: 12px; color: #888; margin-top: 8px;">
-                            Monitoring, updates, bug fixes, 1 deployment/month
+                            10% discount on hourly rate (₹720/hr), 1 feature guaranteed/month, monitoring, updates, bug fixes, 1 deployment/month
                         </div>
                     </div>
                 </div>
@@ -625,14 +842,38 @@
                     <li><span class="checkmark">✓</span> <span>Unlimited bug fixes</span></li>
                     <li><span class="checkmark">✓</span> <span>Monthly performance checks</span></li>
                     <li><span class="checkmark">✓</span> <span>48-hour email support</span></li>
+                    <li><span class="checkmark">✓</span> <span>5-6 weeks of support included</span></li>
                 </ul>
 
                 <div class="section-divider">
-                    <div class="section-title">Additional Benefits</div>
+                    <div class="section-title">Subscription Benefits</div>
                 </div>
                 <ul class="features-list">
-                    <li><span class="checkmark">✓</span> <span>New features at ₹800/hour</span></li>
-                    <li><span class="checkmark">✓</span> <span>3-month minimum, then cancel anytime</span></li>
+                    <li><span class="checkmark">✓</span> <span>10% discount on hourly rate (₹720/hr vs ₹800/hr)</span></li>
+                    <li><span class="checkmark">✓</span> <span>1 feature guaranteed per month</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">What's Not Included</div>
+                </div>
+                <ul class="features-list">
+                    <li><span style="color: #ef4444;">✗</span> <span>40% discount on new features (₹480/hr vs ₹800/hr)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>99.5% uptime guarantee</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Custom design (no templates)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Inventory management system</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Customer reviews & ratings</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Wishlist functionality</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Order tracking page</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>SMS integration (MSG91)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>WhatsApp Business integration</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Email marketing setup (Mailchimp)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Analytics dashboard</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Full SEO optimization</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>24-hour priority support (vs 48-hour)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Weekly monitoring reports (vs monthly)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>2 feature deployments per month (vs 1)</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>Monthly strategy calls</span></li>
+                    <li><span style="color: #ef4444;">✗</span> <span>12 months support included</span></li>
                 </ul>
             </div>
 
@@ -649,15 +890,15 @@
                 <div class="price-section">
                     <div class="price">
                         <span class="currency">₹</span>
-                        <span>75,000</span>
+                        <span>80,000</span>
                     </div>
                     <div class="price-detail">Initial setup (90 hours + premium deployment)</div>
 
                     <div class="subscription-price">
                         <div class="label">Monthly Subscription</div>
-                        <div class="amount">₹6,500/mo</div>
+                        <div class="amount">₹8,000/mo</div>
                         <div style="font-size: 12px; color: #888; margin-top: 8px;">
-                            Priority support, 2 deployments/month, weekly reports
+                            40% discount on hourly rate (₹480/hr), 2 features guaranteed/month, priority support, 2 deployments/month, weekly reports
                         </div>
                     </div>
 
@@ -696,22 +937,32 @@
                     <li><span class="checkmark">✓</span> <span>Unlimited bug fixes</span></li>
                     <li><span class="checkmark">✓</span> <span>Monthly performance checks</span></li>
                     <li><span class="checkmark">✓</span> <span>48-hour email support</span></li>
+                    <li><span class="checkmark">✓</span> <span>7-8 weeks of support included</span></li>
+                </ul>
+
+                <div class="section-divider">
+                    <div class="section-title">Subscription Benefits</div>
+                </div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span><strong>40% discount forever</strong> on all new features (₹480/hr vs ₹800/hr)</span></li>
+                    <li><span class="checkmark">✓</span> <span>2 features guaranteed per month</span></li>
                 </ul>
 
                 <div class="section-divider">
                     <div class="section-title">Premium Features</div>
                 </div>
                 <ul class="features-list">
-                    <li><span class="checkmark">✓</span> <span><strong>40% discount forever</strong> on all new features (₹480/hr vs ₹800/hr)</span></li>
                     <li><span class="checkmark">✓</span> <span><strong>99.5% uptime guarantee</strong></span></li>
                     <li><span class="checkmark">✓</span> <span>Custom design (no templates)</span></li>
                     <li><span class="checkmark">✓</span> <span>Inventory management system</span></li>
                     <li><span class="checkmark">✓</span> <span>Customer reviews & ratings</span></li>
                     <li><span class="checkmark">✓</span> <span>Wishlist functionality</span></li>
                     <li><span class="checkmark">✓</span> <span>Order tracking page</span></li>
-                    <li><span class="checkmark">✓</span> <span>SMS integration (free tier - MSG91)</span></li>
-                    <li><span class="checkmark">✓</span> <span>WhatsApp Business integration (free app)</span></li>
-                    <li><span class="checkmark">✓</span> <span>Email marketing setup (Mailchimp free tier)</span></li>
+                    <li><span class="checkmark">✓</span> <span>SMS integration (MSG91 free tier - included)</span></li>
+                    <li><span class="checkmark">✓</span> <span>WhatsApp Business integration (free app - included)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Email marketing setup (Mailchimp free tier - included)</span></li>
+                </ul>
+                <ul class="features-list">
                     <li><span class="checkmark">✓</span> <span>Analytics dashboard</span></li>
                     <li><span class="checkmark">✓</span> <span>Full SEO optimization</span></li>
                     <li><span class="checkmark">✓</span> <span>24-hour priority support (vs 48-hour)</span></li>
@@ -830,7 +1081,7 @@
                         <span>₹800-2K/mo</span>
                     </div>
                     <div style="font-size: 12px; color: #666; margin-top: 8px; font-style: italic;">
-                        Package 3 includes: SMS integration with MSG91 (10 hrs) + WhatsApp Business setup (6 hrs). You only pay MSG91 for actual SMS sent.
+                        Package 3 includes: Free tier integration (Mailchimp free tier setup - 10 hrs). Premium API upgrades (SendGrid, advanced Mailchimp features) require additional development hours.
                     </div>
                 </div>
             </div>
@@ -956,8 +1207,8 @@
         <script>
             const packages = {
                 1: { dev: 40000, monthly: 0, name: 'Build & Done' },
-                2: { dev: 60000, monthly: 4500, name: 'Build & Deploy' },
-                3: { dev: 75000, monthly: 6500, name: 'Premium' }
+                2: { dev: 65000, monthly: 6500, name: 'Build & Deploy' },
+                3: { dev: 80000, monthly: 8000, name: 'Premium' }
             };
 
             let selectedPackage = 1;
@@ -1088,67 +1339,54 @@
             </p>
         </div>
 
+        <!-- Package 4 - Basic Website -->
+        <div class="pricing-cards" style="margin-top: 60px;">
+            <div class="card">
+                <div class="plan-name">Basic Website</div>
+                <div class="plan-tagline">"Just the website - you handle everything else"</div>
+
+                <div class="timeline">
+                    <div class="timeline-label">Timeline</div>
+                    <div class="timeline-value">2-3 Weeks</div>
+                </div>
+
+                <div class="price-section">
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span>25,000</span>
+                    </div>
+                    <div class="price-detail">One-time payment (30 hours of development)</div>
+                </div>
+
+                <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; font-size: 13px; color: #856404;">
+                    <strong>⚠️ Important:</strong> Even after everything mentioned above and with risks involved, if you still want just the website with the lowest package, this is for you.
+                </div>
+
+                <button class="cta-button secondary">Get Started</button>
+
+                <div class="section-title">What's Included</div>
+                <ul class="features-list">
+                    <li><span class="checkmark">✓</span> <span>Basic e-commerce website with product catalog</span></li>
+                    <li><span class="checkmark">✓</span> <span>Shopping cart & checkout system</span></li>
+                    <li><span class="checkmark">✓</span> <span>Payment gateway integration (Razorpay/PayU)</span></li>
+                    <li><span class="checkmark">✓</span> <span>Basic admin panel for products</span></li>
+                    <li><span class="checkmark">✓</span> <span>Mobile-responsive design</span></li>
+                    <li><span class="checkmark">✓</span> <span>1 week of support included</span></li>
+                    <li><span class="checkmark">✓</span> <span>1 round of revisions</span></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="footer">
             <h3>Clear Pricing, No Surprises</h3>
             <p>
                 <strong>My fees are for development & support.</strong> Third-party service costs (hosting, SMS, etc.) are paid by you directly to providers - this means you own and control everything.<br><br>
-                <strong>All integrations in Package 3 start with FREE TIERS:</strong> Gmail SMTP for emails, WhatsApp Business app (free), Mailchimp free tier (500 subscribers), MSG91 pay-per-use SMS. You only upgrade to paid tiers when your business grows.<br><br>
-                <strong>For new businesses:</strong> Start with <span class="highlight">Build & Deploy</span> (₹60K + ₹4.5K/month)<br>
-                <strong>For serious ventures:</strong> Choose <span class="highlight">Full-Service Premium</span> (₹75K + ₹6.5K/month) and save 40% forever on new features<br><br>
+                <strong>All integrations in Package 3 start with FREE TIERS:</strong> Gmail SMTP for emails, WhatsApp Business app (free), Mailchimp free tier (500 subscribers), MSG91 pay-per-use SMS. Free tier integrations are included. Premium API upgrades (WhatsApp Official API, SendGrid, advanced features) require additional development hours at ₹480/hr (40% discount).<br><br>
+                <strong>For new businesses:</strong> Start with <span class="highlight">Build & Deploy</span> (₹65K + ₹6.5K/month)<br>
+                <strong>For serious ventures:</strong> Choose <span class="highlight">Full-Service Premium</span> (₹80K + ₹8K/month) and save 40% forever on new features<br><br>
                 Questions? Let's discuss which package fits your needs.
             </p>
         </div>
     </div>
 </body>
-</html> font-style: italic;">
-                        Package 3 includes: I set up Mailchimp, design templates, integrate signup forms (10 hrs)
-                    </div>
-                </div>
-            </div>
-
-            <!-- SMS & WhatsApp Card -->
-            <div class="infra-card">
-                <div class="infra-card-header">
-                    <div class="infra-icon">💬</div>
-                    <div>
-                        <div class="infra-card-title">SMS & WhatsApp</div>
-                    </div>
-                </div>
-                <div class="infra-subtitle">Order updates, delivery notifications, customer support</div>
-
-                <div class="tier-option">
-                    <div class="tier-header">
-                        <span class="tier-name">SMS (MSG91 - Pay per use)</span>
-                        <span class="tier-price">₹0.15-0.25/SMS</span>
-                    </div>
-                    <div class="tier-description">
-                        100 orders/day × 3 SMS each = ₹1,500-2,500/month. Only pay for what you use.
-                    </div>
-                </div>
-
-                <div class="tier-option">
-                    <div class="tier-header">
-                        <span class="tier-name">WhatsApp Business (Free)</span>
-                        <span class="tier-price">₹0</span>
-                    </div>
-                    <div class="tier-description">
-                        Manual notifications using WhatsApp Business app. Good for <50 orders/day.
-                    </div>
-                </div>
-
-                <div class="integration-note">
-                    <strong>What I Do:</strong>
-                    Package 3 includes: SMS integration with MSG91 (10 hrs) + WhatsApp Business setup (6 hrs). You only pay MSG91 for actual SMS sent.
-                </div>
-
-                <div class="upgrade-options">
-                    <div class="upgrade-title">⬆️ Premium Upgrades (Optional)</div>
-                    <div class="upgrade-item">
-                        <span>WhatsApp Official API (automated)</span>
-                        <span>+15 hrs dev</span>
-                    </div>
-                    <div class="upgrade-item">
-                        <span>WhatsApp API service provider</span>
-                        <span>₹5K setup + ₹2-5K/mo</span>
-                    </div>
-                    <div style="font-size: 12px; color: #666; margin-top: 8px;
+</html>
